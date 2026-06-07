@@ -777,9 +777,13 @@ h1 {
 
 .brand-text span,
 .brand span {
-  font-size: 10px !important;
+  font-size: 9.7px !important;
   font-weight: 900 !important;
-  letter-spacing: 0.32em !important;
+
+  letter-spacing: 0.52em !important;
+
+  display: block;
+  width: 100%;
 }
 
 .brand-text strong,
@@ -818,9 +822,9 @@ h1 {
 }
 
 .sidebar-brand-text span {
-  font-size: 10px;
+  font-size: 9.7px;
   font-weight: 900;
-  letter-spacing: .32em;
+  letter-spacing: .52em;
 }
 
 .sidebar-brand-text strong {
