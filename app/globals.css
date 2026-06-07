@@ -1211,3 +1211,14 @@ body.menu-open {
     padding-top: 128px !important;
   }
 }
+
+@media (max-width: 900px) {
+  .brand-text span,
+  .brand span {
+    letter-spacing: .55em !important;
+  }
+
+  .sidebar-brand-text span {
+    letter-spacing: .55em !important;
+  }
+}
