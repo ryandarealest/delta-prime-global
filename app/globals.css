@@ -1115,7 +1115,8 @@ body.menu-open {
   letter-spacing: -0.01em;
 }
 
-.mobile-menu-btn {
+.mobile-menu-btn,
+.mobile-close-btn {
   color: #11100e !important;
   background: transparent !important;
   border: none !important;
