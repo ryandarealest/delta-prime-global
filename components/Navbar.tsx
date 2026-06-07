@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -14,18 +15,29 @@ const links = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  useEffect(() => {
-  document.documentElement.classList.toggle("menu-open", menuOpen);
-  document.body.classList.toggle("menu-open", menuOpen);
+  const [scrolled, setScrolled] = useState(false);
 
-  return () => {
-    document.documentElement.classList.remove("menu-open");
-    document.body.classList.remove("menu-open");
-  };
-}, [menuOpen]);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("menu-open", menuOpen);
+    document.body.classList.toggle("menu-open", menuOpen);
+
+    return () => {
+      document.documentElement.classList.remove("menu-open");
+      document.body.classList.remove("menu-open");
+    };
+  }, [menuOpen]);
+
   return (
     <>
-      <header className="navbar">
+      <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <Link href="/" className="brand" aria-label="Delta Prime Global home">
           <Image
             src="/images/logoexport.png"
@@ -54,7 +66,6 @@ export default function Navbar() {
           Request Quote
         </Link>
 
-        {/* MOBILE HAMBURGER */}
         <button
           className="mobile-menu-btn"
           onClick={() => setMenuOpen(true)}
@@ -64,20 +75,20 @@ export default function Navbar() {
         </button>
       </header>
 
-      {/* OVERLAY */}
       <div
         className={`sidebar-overlay ${menuOpen ? "open" : ""}`}
         onClick={() => setMenuOpen(false)}
       />
 
-      {/* SIDEBAR */}
       <aside className={`mobile-sidebar ${menuOpen ? "open" : ""}`}>
         <button
           className="mobile-close-btn"
           onClick={() => setMenuOpen(false)}
+          aria-label="Close menu"
         >
           ×
         </button>
+
         <div className="sidebar-brand">
           <Image
             src="/images/logoexport.png"
@@ -92,12 +103,9 @@ export default function Navbar() {
             <strong>GLOBAL</strong>
           </div>
         </div>
+
         {links.map(([label, href]) => (
-          <Link
-            key={href}
-            href={href}
-            onClick={() => setMenuOpen(false)}
-          >
+          <Link key={href} href={href} onClick={() => setMenuOpen(false)}>
             {label}
           </Link>
         ))}
