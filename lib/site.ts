@@ -1,7 +1,7 @@
 export const site = {
   name: "Delta Prime Global",
   legalName: "Delta Prime Global Trading",
-  url: "https://deltaprimeglobal.com",
+  url: "https://delta-prime-global.vercel.app",
   email: "sales@deltaprimeglobal.com",
   phone: "+84 000 000 000",
   address: "Da Nang, Vietnam",
