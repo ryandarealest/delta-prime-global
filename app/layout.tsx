@@ -28,6 +28,25 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_US",
     type: "website",
+
+    images: [
+      {
+        url: "/images/preview.png",
+        width: 1200,
+        height: 630,
+        alt: "Delta Prime Global",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Delta Prime Global",
+    description: site.description,
+    images: ["/images/preview.png"],
+  },
+
+  icons: {
+    icon: "/images/logoexport.png",
   },
   alternates: {
     canonical: site.url,
