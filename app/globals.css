@@ -1114,3 +1114,26 @@ body.menu-open {
   line-height: 1.85;
   letter-spacing: -0.01em;
 }
+
+.mobile-menu-btn {
+  color: #11100e !important;
+  background: transparent !important;
+  border: none !important;
+
+  -webkit-text-fill-color: #11100e !important;
+  -webkit-tap-highlight-color: transparent !important;
+
+  text-decoration: none !important;
+  appearance: none !important;
+}
+
+.mobile-menu-btn,
+.mobile-menu-btn:visited,
+.mobile-menu-btn:hover,
+.mobile-menu-btn:focus,
+.mobile-menu-btn:active {
+  color: #11100e !important;
+  -webkit-text-fill-color: #11100e !important;
+  text-decoration: none !important;
+  outline: none !important;
+}
